@@ -18,12 +18,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -52,12 +91,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -87,12 +165,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -129,18 +246,57 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
 
   swagger_path "/<%= model_name.pluralize.underscore %>/{id}" do
-    operation :path do
+    operation :patch do
       key :summary, "Update <%= model_name.singularize.underscore %>"
       key :produces, [
         "application/json"
@@ -171,12 +327,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -202,12 +397,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -229,12 +463,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -256,12 +529,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -283,12 +595,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -310,12 +661,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end
@@ -337,12 +727,51 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response 403 do
         key :description, "Forbidden"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
       response :default do
         key :description, "Unexpected error"
+        schema do 
+          property :errors do
+            property :status do
+              key :type, :integer
+            end
+            property :source do
+              key :type, :string
+            end
+            property :detail do
+              key :type, :string
+            end
+          end
+        end
       end
     end
   end<% end %><% end %>

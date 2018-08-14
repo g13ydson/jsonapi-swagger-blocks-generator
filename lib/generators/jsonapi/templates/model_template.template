@@ -1,0 +1,38 @@
+class <%= model.camelcase %>
+  include Swagger::Blocks<% model_name = "#{model}".split("::").last || model %>
+  <% attributes =  "#{model.camelcase}Resource".constantize._attributes %><% relationships =  "#{model.camelcase}Resource".constantize._relationships %>
+  swagger_schema :<%= model_name.singularize.underscore %>_index_response do
+    property :data do
+      key :type, :array
+      items do
+        property :id do
+          key :type, :integer
+        end
+        property :type do
+          key :type, :string
+        end<% if attributes %>
+        property :attributes do
+          items do<% attributes.each do |attribute| %>
+            property :<%= attribute[0] %> do
+              key :type, :string
+            end<% end %>
+          end
+        end<% end %><% if relationships %>
+        property :relationships do
+          items do<% relationships.keys.each do |relationship| %>
+            property :<%= relationship %> do
+              property :links do
+                property :self do
+                  key :type, :string
+                end
+                property :related do
+                  key :type, :string
+                end
+              end
+            end<% end %>
+          end
+        end<% end %>
+      end
+    end
+  end
+end
