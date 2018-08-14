@@ -1,0 +1,349 @@
+class <%= model.pluralize.camelcase %>Controller
+  include Swagger::Blocks<% model_name = "#{model}".split("::").last || model %>
+
+  swagger_path "/<%= model_name.pluralize.underscore %>" do
+    operation :get do
+      key :summary, "Index <%= model_name.pluralize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      response 200 do
+        key :description, "List of all <%= model_name.pluralize.underscore %>"
+        schema do
+          key :"$ref", :<%= model_name.singularize.underscore %>_index_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{id}" do
+    operation :get do
+      key :summary, "Show <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of <%= model_name.singularize.underscore %>"
+        key :required, true
+        key :type, :integer
+      end
+      response 200 do
+        key :description, "Show <%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :<%= model_name.singularize.underscore %>_show_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>" do
+    operation :post do
+      key :summary, "Create <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      parameter do
+        key :name, :<%= model_name.singularize.underscore %>_params
+        key :in, :body
+        key :required, true
+        schema do
+          key :"$ref", :create_<%= model_name.singularize.underscore %>
+        end
+      end
+      response 200 do
+        key :description, "<%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :<%= model_name.singularize.underscore %>_create_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{id}" do
+    operation :put do
+      key :summary, "Update <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of <%= model_name.singularize.underscore %>"
+        key :required, true
+        key :type, :integer
+      end
+      parameter do
+        key :name, :<%= model_name.singularize.underscore %>_params
+        key :in, :body
+        key :required, true
+        schema do
+          key :"$ref", :update_<%= model_name.singularize.underscore %>
+        end
+      end
+      response 200 do
+        key :description, "<%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :<%= model_name.singularize.underscore %>_create_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{id}" do
+    operation :path do
+      key :summary, "Update <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of <%= model_name.singularize.underscore %>"
+        key :required, true
+        key :type, :integer
+      end
+      parameter do
+        key :name, :<%= model_name.singularize.underscore %>_params
+        key :in, :body
+        key :required, true
+        schema do
+          key :"$ref", :update_<%= model_name.singularize.underscore %>
+        end
+      end
+      response 200 do
+        key :description, "<%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :<%= model_name.singularize.underscore %>_create_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+  
+  swagger_path "/<%= model_name.pluralize.underscore %>/{id}" do
+    operation :delete do
+      key :summary, "Delete <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of <%= model_name.singularize.underscore %>"
+        key :required, true
+        key :type, :integer
+      end
+      response 200 do
+        key :description, "empty"
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+<% relationships = "#{model.camelcase}Resource".constantize._relationships %><% if relationships %><% relationships.keys.each do |relationship| %>
+  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/<%= relationship %>" do
+    operation :get do
+      key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      response 200 do
+        key :description, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
+    operation :delete do
+      key :summary, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      response 200 do
+        key :description, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
+    operation :put do
+      key :summary, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      response 200 do
+        key :description, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
+    operation :post do
+      key :summary, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      response 200 do
+        key :description, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end
+
+  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
+    operation :get do
+      key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
+      key :produces, [
+        "application/json"
+      ]
+      key :tags, [
+        "<%= model_name.singularize.underscore %>"
+      ]
+      response 200 do
+        key :description, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
+        schema do
+          key :"$ref", :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+        end
+      end
+      response 401 do
+        key :description, "Unauthorized"
+      end
+      response 403 do
+        key :description, "Forbidden"
+      end
+      response :default do
+        key :description, "Unexpected error"
+      end
+    end
+  end<% end %><% end %>
+end
