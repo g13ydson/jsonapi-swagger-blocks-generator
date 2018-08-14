@@ -1,11 +1,5 @@
-require "jsonapi/swagger/blocks/generator/version"
+# frozen_string_literal: true
 
-module Jsonapi
-  module Swagger
-    module Blocks
-      module Generator
-        # Your code goes here...
-      end
-    end
-  end
+module Jsonapi::Swagger::Blocks
+  # Your code goes here...
 end

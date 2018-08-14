@@ -1,0 +1,8 @@
+Description:
+    Creates swagger blocks files from resources
+Example:
+    rails generate jsonapi:swagger_bloks user
+
+    This will create:
+        controllers/docs/user.rb
+        controllers/docs/users_controller.rb
