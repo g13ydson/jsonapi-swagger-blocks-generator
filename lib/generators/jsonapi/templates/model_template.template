@@ -18,19 +18,17 @@ class <%= model.camelcase %>
             end<% end %>
           end
         end<% end %><% if relationships %>
-        property :relationships do
-          items do<% relationships.keys.each do |relationship| %>
-            property :<%= relationship %> do
-              property :links do
-                property :self do
-                  key :type, :string
-                end
-                property :related do
-                  key :type, :string
-                end
+        property :relationships do<% relationships.keys.each do |relationship| %>
+          property :<%= relationship %> do
+            property :links do
+              property :self do
+                key :type, :string
               end
-            end<% end %>
-          end
+              property :related do
+                key :type, :string
+              end
+            end
+          end<% end %>
         end<% end %>
       end
     end
