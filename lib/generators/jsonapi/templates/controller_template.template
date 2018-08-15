@@ -157,7 +157,7 @@ class <%= model.pluralize.camelcase %>Controller
           key :"$ref", :create_<%= model_name.singularize.underscore %>
         end
       end
-      response 200 do
+      response 201 do
         key :description, "<%= model_name.singularize.underscore %>"
         schema do
           key :"$ref", :<%= model_name.singularize.underscore %>_create_response
@@ -165,19 +165,6 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
       response 403 do
         key :description, "Forbidden"
