@@ -12,8 +12,8 @@ class <%= model.camelcase %>
           key :type, :string
         end<% if attributes %>
         property :attributes do
-          items do<% attributes.each do |attribute| %>
-            property :<%= attribute[0] %> do
+          items do<% attributes.keys.each do |attribute| %>
+            property :<%= attribute %> do
               key :type, :string
             end<% end %>
           end
@@ -50,8 +50,8 @@ class <%= model.camelcase %>
         end
       end<% if attributes %>
       property :attributes do
-        items do<% attributes.each do |attribute| %>
-          property :<%= attribute[0] %> do
+        items do<% attributes.keys.each do |attribute| %>
+          property :<%= attribute %> do
             key :type, :string
           end<% end %>
         end
@@ -69,6 +69,41 @@ class <%= model.camelcase %>
             end
           end<% end %>
         end
+      end<% end %>
+    end
+  end
+
+  swagger_schema :create_<%= model_name.singularize.underscore %> do
+    property :data do
+      property :type do
+        key :type, :string
+      end<% if attributes %>
+      property :attributes do
+        items do<% attributes.keys.each do |attribute| %>
+          property :<%= attribute %> do
+            key :type, :string
+          end<% end %>
+        end
+      end<% if relationships %>
+      property :relationships do<% relationships.each do |relationship| %>
+        property :<%= relationship[0] %> do
+          property :data do<% if relationship[1].class.to_s == "JSONAPI::Relationship::ToOne" %>
+            property :type do
+              key :type, :string
+            end
+            property :id do
+              key :type, :string
+            end<% elsif relationship[1].class.to_s == "JSONAPI::Relationship::ToMany" %>
+            items do
+              property :type do
+                key :type, :string
+              end
+              property :id do
+                key :type, :string
+              end
+            end<% end %>
+          end<% end %>
+        end<% end %>
       end<% end %>
     end
   end
