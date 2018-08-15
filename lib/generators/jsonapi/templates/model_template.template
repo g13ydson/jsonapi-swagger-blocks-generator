@@ -35,4 +35,41 @@ class <%= model.camelcase %>
       end
     end
   end
+
+  swagger_schema :<%= model_name.singularize.underscore %>_show_response do
+    property :data do
+      property :id do
+        key :type, :integer
+      end
+      property :type do
+        key :type, :string
+      end
+      property :links do
+        property :self do
+          key :type, :string
+        end
+      end<% if attributes %>
+      property :attributes do
+        items do<% attributes.each do |attribute| %>
+          property :<%= attribute[0] %> do
+            key :type, :string
+          end<% end %>
+        end
+      end<% end %><% if relationships %>
+      property :relationships do
+        items do<% relationships.keys.each do |relationship| %>
+          property :<%= relationship %> do
+            property :links do
+              property :self do
+                key :type, :string
+              end
+              property :related do
+                key :type, :string
+              end
+            end
+          end<% end %>
+        end
+      end<% end %>
+    end
+  end
 end
