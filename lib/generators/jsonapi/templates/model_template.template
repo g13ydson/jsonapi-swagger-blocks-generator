@@ -104,6 +104,41 @@ class <%= model.camelcase %>
     end
   end
 
+  swagger_schema :<%= model_name.singularize.underscore %>_update_response do
+    property :data do
+      property :id do
+        key :type, :integer
+      end
+      property :type do
+        key :type, :string
+      end
+      property :links do
+        property :self do
+          key :type, :string
+        end
+      end<% if attributes %>
+      property :attributes do
+        items do<% attributes.keys.each do |attribute| %>
+          property :<%= attribute %> do
+            key :type, :string
+          end<% end %>
+        end
+      end<% end %><% if relationships %>
+      property :relationships do<% relationships.keys.each do |relationship| %>
+        property :<%= relationship %> do
+          property :links do
+            property :self do
+              key :type, :string
+            end
+            property :related do
+              key :type, :string
+            end
+          end
+        end<% end %>
+      end<% end %>
+    end
+  end
+
   swagger_schema :create_<%= model_name.singularize.underscore %> do
     property :data do
       property :type do
@@ -136,6 +171,21 @@ class <%= model.camelcase %>
           end<% end %>
         end<% end %>
       end<% end %>
+    end
+  end
+
+  swagger_schema :update_<%= model_name.singularize.underscore %> do
+    property :data do
+      property :type do
+        key :type, :string
+      end<% if attributes %>
+      property :attributes do
+        items do<% attributes.keys.each do |attribute| %>
+          property :<%= attribute %> do
+            key :type, :string
+          end<% end %>
+        end
+      end
     end
   end
 end
