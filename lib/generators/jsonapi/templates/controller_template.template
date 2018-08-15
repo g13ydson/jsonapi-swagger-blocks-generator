@@ -18,35 +18,9 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
+      response 404 do
+        key :description, "Not Found"
       end
       response :default do
         key :description, "Unexpected error"
@@ -91,35 +65,9 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
+      response 404 do
+        key :description, "Not Found"
       end
       response :default do
         key :description, "Unexpected error"
@@ -361,7 +309,7 @@ class <%= model.pluralize.camelcase %>Controller
         key :description, "No Content"
       end
       response 404 do
-        key :description, "NOT FOUND"
+        key :description, "Not Found"
       end
       response 401 do
         key :description, "Unauthorized"
