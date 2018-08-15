@@ -393,39 +393,19 @@ class <%= model.pluralize.camelcase %>Controller
         key :type, :integer
       end
       response 200 do
-        key :description, "empty"
+        key :description, "Ok"
+      end
+      response 202 do
+        key :description, "Accepted"
+      end
+      response 204 do
+        key :description, "No Content"
+      end
+      response 404 do
+        key :description, "NOT FOUND"
       end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
-      end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
       response :default do
         key :description, "Unexpected error"
