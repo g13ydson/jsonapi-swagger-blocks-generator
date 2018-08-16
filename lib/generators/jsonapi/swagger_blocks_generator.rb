@@ -5,13 +5,12 @@ module Jsonapi
     class SwaggerBlocksGenerator < Rails::Generators::Base
       source_root File.expand_path("templates", __dir__)
       argument :model, type: :string
+      argument :namespace, type: :string, default: ""
 
       def generate_documentation
         begin
-          Object.const_get("#{model.camelcase}Resource").is_a?(Class)
-          puts "########"
-          puts "#{model.camelcase}Resource".constantize._relationships
-          puts "#{model.camelcase}Resource".constantize._attributes
+          model_name = "#{model}".split("::").last || model
+          Object.const_get("#{namespace}::#{model_name.camelcase}Resource").is_a?(Class)
           generate_model_template
           generate_controller_template
         rescue Exception => e

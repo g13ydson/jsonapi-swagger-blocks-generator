@@ -332,7 +332,7 @@ class <%= model.pluralize.camelcase %>Controller
       end
     end
   end
-<% relationships = "#{model.camelcase}Resource".constantize._relationships %><% if relationships %><% relationships.keys.each do |relationship| %>
+<% relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships %><% if relationships %><% relationships.keys.each do |relationship| %>
   swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/<%= relationship %>" do
     operation :get do
       key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
