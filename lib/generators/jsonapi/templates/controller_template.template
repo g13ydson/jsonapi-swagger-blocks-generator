@@ -354,19 +354,6 @@ class <%= model.pluralize.camelcase %>Controller
       end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
       response 403 do
         key :description, "Forbidden"
@@ -383,6 +370,9 @@ class <%= model.pluralize.camelcase %>Controller
             end
           end
         end
+      end
+      response 404 do
+        key :description, "Not Found"
       end
       response :default do
         key :description, "Unexpected error"
@@ -484,21 +474,14 @@ class <%= model.pluralize.camelcase %>Controller
           key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
+      response 202 do
+        key :description, "Accepted"
+      end
+      response 204 do
+        key :description, "No Content"
+      end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
       response 403 do
         key :description, "Forbidden"
@@ -550,21 +533,14 @@ class <%= model.pluralize.camelcase %>Controller
           key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
+      response 202 do
+        key :description, "Accepted"
+      end
+      response 204 do
+        key :description, "No Content"
+      end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
       end
       response 403 do
         key :description, "Forbidden"
@@ -616,21 +592,17 @@ class <%= model.pluralize.camelcase %>Controller
           key :"$ref", :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
+      response 202 do
+        key :description, "Accepted"
+      end
+      response 204 do
+        key :description, "No Content"
+      end
       response 401 do
         key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
-        end
+      end
+      response 404 do
+        key :description, "Not Found"
       end
       response 403 do
         key :description, "Forbidden"
