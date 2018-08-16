@@ -1,6 +1,9 @@
 class <%= model.camelcase %>
-  include Swagger::Blocks<% model_name = "#{model}".split("::").last || model %>
-  <% attributes =  "#{namespace}::#{model_name.camelcase}Resource".constantize._attributes %><% relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships %>
+  include Swagger::Blocks
+  <%- model_name = "#{model}".split("::").last || model -%>
+  <%- attributes =  "#{namespace}::#{model_name.camelcase}Resource".constantize._attributes -%>
+  <%- relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships -%>
+
   swagger_schema :<%= model_name.singularize.underscore %>_index_response do
     property :data do
       key :type, :array
@@ -10,15 +13,21 @@ class <%= model.camelcase %>
         end
         property :type do
           key :type, :string
-        end<% if attributes %>
+        end
+      <%- if attributes -%>
         property :attributes do
-          items do<% attributes.keys.each do |attribute| %>
+          items do
+          <%- attributes.keys.each do |attribute| -%>
             property :<%= attribute %> do
               key :type, :string
-            end<% end %>
+            end
+          <%- end -%>
           end
-        end<% end %><% if relationships %>
-        property :relationships do<% relationships.keys.each do |relationship| %>
+        end
+      <%- end -%>
+      <%- if relationships -%>
+        property :relationships do
+        <%- relationships.keys.each do |relationship| -%>
           property :<%= relationship %> do
             property :links do
               property :self do
@@ -28,8 +37,10 @@ class <%= model.camelcase %>
                 key :type, :string
               end
             end
-          end<% end %>
-        end<% end %>
+          end
+        <%- end -%>
+        end
+      <%- end -%>
       end
     end
   end
@@ -46,15 +57,21 @@ class <%= model.camelcase %>
         property :self do
           key :type, :string
         end
-      end<% if attributes %>
+      end
+    <%- if attributes -%>
       property :attributes do
-        items do<% attributes.keys.each do |attribute| %>
+        items do
+        <%- attributes.keys.each do |attribute| -%>
           property :<%= attribute %> do
             key :type, :string
-          end<% end %>
+          end
+        <%- end -%>
         end
-      end<% end %><% if relationships %>
-      property :relationships do<% relationships.keys.each do |relationship| %>
+      end
+    <%- end -%>
+    <%- if relationships -%>
+      property :relationships do
+      <%- relationships.keys.each do |relationship| -%>
         property :<%= relationship %> do
           property :links do
             property :self do
@@ -64,8 +81,10 @@ class <%= model.camelcase %>
               key :type, :string
             end
           end
-        end<% end %>
-      end<% end %>
+        end
+      <%- end -%>
+      end
+    <%- end -%>
     end
   end
 
@@ -81,15 +100,21 @@ class <%= model.camelcase %>
         property :self do
           key :type, :string
         end
-      end<% if attributes %>
+      end
+    <%- if attributes -%>
       property :attributes do
-        items do<% attributes.keys.each do |attribute| %>
+        items do
+        <%- attributes.keys.each do |attribute| -%>
           property :<%= attribute %> do
             key :type, :string
-          end<% end %>
+          end
+        <%- end -%>
         end
-      end<% end %><% if relationships %>
-      property :relationships do<% relationships.keys.each do |relationship| %>
+      end
+    <%- end -%>
+    <%- if relationships -%>
+      property :relationships do
+      <%- relationships.keys.each do |relationship| -%>
         property :<%= relationship %> do
           property :links do
             property :self do
@@ -99,8 +124,10 @@ class <%= model.camelcase %>
               key :type, :string
             end
           end
-        end<% end %>
-      end<% end %>
+        end
+      <%- end -%>
+      end
+    <%- end -%>
     end
   end
 
@@ -116,15 +143,21 @@ class <%= model.camelcase %>
         property :self do
           key :type, :string
         end
-      end<% if attributes %>
+      end
+    <%- if attributes -%>
       property :attributes do
-        items do<% attributes.keys.each do |attribute| %>
+        items do
+        <%- attributes.keys.each do |attribute| -%>
           property :<%= attribute %> do
             key :type, :string
-          end<% end %>
+          end
+        <%- end -%>
         end
-      end<% end %><% if relationships %>
-      property :relationships do<% relationships.keys.each do |relationship| %>
+      end
+    <%- end -%>
+    <%- if relationships -%>
+      property :relationships do
+      <%- relationships.keys.each do |relationship| -%>
         property :<%= relationship %> do
           property :links do
             property :self do
@@ -134,8 +167,10 @@ class <%= model.camelcase %>
               key :type, :string
             end
           end
-        end<% end %>
-      end<% end %>
+        end
+      <%- end -%>
+      end
+    <%- end -%>
     end
   end
 
@@ -143,23 +178,31 @@ class <%= model.camelcase %>
     property :data do
       property :type do
         key :type, :string
-      end<% if attributes %>
+      end
+    <%- if attributes -%>
       property :attributes do
-        items do<% attributes.keys.each do |attribute| %>
+        items do
+        <%- attributes.keys.each do |attribute| -%>
           property :<%= attribute %> do
             key :type, :string
-          end<% end %>
+          end
+        <%- end -%>
         end
-      end<% if relationships %>
-      property :relationships do<% relationships.each do |relationship| %>
+      end
+    <%- end -%>
+    <%- if relationships -%>
+      property :relationships do
+      <%- relationships.each do |relationship| -%>
         property :<%= relationship[0] %> do
-          property :data do<% if relationship[1].class.to_s == "JSONAPI::Relationship::ToOne" %>
+          property :data do
+          <%- if relationship[1].class.to_s == "JSONAPI::Relationship::ToOne" -%>
             property :type do
               key :type, :string
             end
             property :id do
               key :type, :string
-            end<% elsif relationship[1].class.to_s == "JSONAPI::Relationship::ToMany" %>
+            end
+          <%- elsif relationship[1].class.to_s == "JSONAPI::Relationship::ToMany" -%>
             items do
               property :type do
                 key :type, :string
@@ -167,10 +210,13 @@ class <%= model.camelcase %>
               property :id do
                 key :type, :string
               end
-            end<% end %>
-          end<% end %>
-        end<% end %>
-      end<% end %>
+            end
+          <%- end -%>
+          end
+        end
+      <%- end -%>
+      end
+    <%- end -%>
     end
   end
 
@@ -178,18 +224,26 @@ class <%= model.camelcase %>
     property :data do
       property :type do
         key :type, :string
-      end<% if attributes %>
+      end
+    <%- if attributes -%>
       property :attributes do
-        items do<% attributes.keys.each do |attribute| %>
+        items do
+        <%- attributes.keys.each do |attribute| -%>
           property :<%= attribute %> do
             key :type, :string
-          end<% end %>
-        end<% end %>
+          end
+        <%- end -%>
+        end
       end
+    <%- end -%>
     end
   end
-  <% relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships %><% if relationships %><% relationships.keys.each do |relationship| %>
-  swagger_schema :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response do<% relation_relationships = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._relationships %><% relation_attributes = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._attributes %>
+  <%- relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships -%>
+  <%- if relationships -%>
+  <% relationships.keys.each do |relationship| %>
+  swagger_schema :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response do
+  <%- relation_relationships = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._relationships -%>
+  <%- relation_attributes = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._attributes -%>
     property :data do
       key :type, :array
       items do
@@ -198,15 +252,21 @@ class <%= model.camelcase %>
         end
         property :type do
           key :type, :string
-        end<% if relation_attributes %>
+        end
+      <%- if relation_attributes -%>
         property :attributes do
-          items do<% relation_attributes.keys.each do |attribute| %>
+          items do
+          <%- relation_attributes.keys.each do |attribute| -%>
             property :<%= attribute %> do
               key :type, :string
-            end<% end %>
+            end
+          <%- end -%>
           end
-        end<% end %><% if relation_relationships %>
-        property :relationships do<% relation_relationships.keys.each do |relation_relationship| %>
+        end
+      <%- end -%>
+      <%- if relation_relationships -%>
+        property :relationships do
+        <%- relation_relationships.keys.each do |relation_relationship| -%>
           property :<%= relation_relationship %> do
             property :links do
               property :self do
@@ -216,9 +276,13 @@ class <%= model.camelcase %>
                 key :type, :string
               end
             end
-          end<% end %>
-        end<% end %>
+          end
+        <%- end -%>
+        end
+      <%- end -%>
       end
     end
-  end<% end %><% end %>
+  end
+  <%- end -%>
+  <%- end -%>
 end
