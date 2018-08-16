@@ -404,8 +404,8 @@ class <%= model.pluralize.camelcase %>Controller
   end
 
   swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
-    operation :delete do
-      key :summary, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
+    operation :get do
+      key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
         "application/json"
       ]
@@ -413,9 +413,9 @@ class <%= model.pluralize.camelcase %>Controller
         "<%= model_name.singularize.underscore %>"
       ]
       response 200 do
-        key :description, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
+        key :description, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
-          key :"$ref", :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+          key :"$ref", :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>relation_response
         end
       end
       response 401 do
@@ -601,9 +601,9 @@ class <%= model.pluralize.camelcase %>Controller
     end
   end
 
-  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
-    operation :get do
-      key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
+   swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/relationships/<%= relationship %>" do
+    operation :delete do
+      key :summary, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
         "application/json"
       ]
@@ -611,9 +611,9 @@ class <%= model.pluralize.camelcase %>Controller
         "<%= model_name.singularize.underscore %>"
       ]
       response 200 do
-        key :description, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
+        key :description, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
-          key :"$ref", :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+          key :"$ref", :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
         end
       end
       response 401 do

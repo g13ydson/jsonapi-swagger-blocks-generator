@@ -238,9 +238,9 @@ class <%= model.camelcase %>
     <%- end -%>
     end
   end
-  <%- relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships -%>
-  <%- if relationships -%>
-  <% relationships.keys.each do |relationship| %>
+<%- relationships = "#{namespace}::#{model_name.camelcase}Resource".constantize._relationships -%>
+<%- if relationships -%>
+<% relationships.keys.each do |relationship| %>
   swagger_schema :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response do
   <%- relation_relationships = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._relationships -%>
   <%- relation_attributes = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._attributes -%>
@@ -283,6 +283,28 @@ class <%= model.camelcase %>
       end
     end
   end
-  <%- end -%>
-  <%- end -%>
+
+  swagger_schema :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>relation_response do
+    property :links do
+      property :self do
+        key :type, :string
+      end
+      property :related do
+        key :type, :string
+      end
+    end
+    property :data do
+      key :type, :array
+      items do
+        property :id do
+          key :type, :integer
+        end
+        property :type do
+          key :type, :string
+        end
+      end
+    end
+  end
+<%- end -%>
+<%- end -%>
 end
