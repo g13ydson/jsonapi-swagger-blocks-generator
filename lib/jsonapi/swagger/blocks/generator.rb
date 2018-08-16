@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
-module Jsonapi::Swagger::Blocks
-  # Your code goes here...
+module Jsonapi
+  module Swagger
+    module Blocks
+    end
+  end
 end
