@@ -415,7 +415,7 @@ class <%= model.pluralize.camelcase %>Controller
       response 200 do
         key :description, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
-          key :"$ref", :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>relation_response
+          key :"$ref", :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
       response 401 do
@@ -481,7 +481,7 @@ class <%= model.pluralize.camelcase %>Controller
       response 200 do
         key :description, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
-          key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+          key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
       response 401 do
@@ -547,7 +547,7 @@ class <%= model.pluralize.camelcase %>Controller
       response 200 do
         key :description, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
-          key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+          key :"$ref", :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
       response 401 do
@@ -613,7 +613,7 @@ class <%= model.pluralize.camelcase %>Controller
       response 200 do
         key :description, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
-          key :"$ref", :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_response
+          key :"$ref", :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response
         end
       end
       response 401 do

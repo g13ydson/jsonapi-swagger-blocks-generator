@@ -284,7 +284,7 @@ class <%= model.camelcase %>
     end
   end
 
-  swagger_schema :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>relation_response do
+  swagger_schema :show_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
     property :links do
       property :self do
         key :type, :string
@@ -293,6 +293,48 @@ class <%= model.camelcase %>
         key :type, :string
       end
     end
+    property :data do
+      key :type, :array
+      items do
+        property :id do
+          key :type, :integer
+        end
+        property :type do
+          key :type, :string
+        end
+      end
+    end
+  end
+
+  swagger_schema :put_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
+    property :data do
+      key :type, :array
+      items do
+        property :id do
+          key :type, :integer
+        end
+        property :type do
+          key :type, :string
+        end
+      end
+    end
+  end
+
+  swagger_schema :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
+    property :data do
+      key :type, :array
+      items do
+        property :id do
+          key :type, :integer
+        end
+        property :type do
+          key :type, :string
+        end
+      end
+    end
+  end
+
+  swagger_schema :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
     property :data do
       key :type, :array
       items do
