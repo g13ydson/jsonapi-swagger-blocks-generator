@@ -21,11 +21,11 @@ module Jsonapi
 
       private
         def generate_model_template
-          template "model_template.template", "app/controllers/docs/#{model.underscore}.rb"
+          template "model_template.template", "app/docs/#{model.underscore}.rb"
         end
 
         def generate_controller_template
-          template "controller_template.template", "app/controllers/docs/#{model.underscore.pluralize}_controller.rb"
+          template "controller_template.template", "app/docs/#{model.underscore.pluralize}_controller.rb"
         end
     end
   end
