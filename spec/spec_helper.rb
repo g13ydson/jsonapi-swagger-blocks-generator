@@ -2,6 +2,8 @@
 
 require "bundler/setup"
 require "jsonapi/swagger/blocks/generator"
+require "active_record/railtie"
+require "jsonapi-resources"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
