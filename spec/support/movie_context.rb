@@ -75,20 +75,6 @@ RSpec.shared_context "movie class" do
         end
       end
 
-      def awards
-        award_ids.map do |i|
-          Award.new.tap do |a|
-            a.id = i
-            a.title = "Test Award #{i}"
-            a.actor_id = id
-          end
-        end
-      end
-
-      def award_ids
-        [id * 9, id * 9 + 1]
-      end
-
       def url
         "http://movies.com/actors/#{id}"
       end
@@ -108,10 +94,6 @@ RSpec.shared_context "movie class" do
           s.agency_ids = [id]
         end
       end
-    end
-
-    class Award
-      attr_accessor :id, :title, :actor_id
     end
 
     class State
@@ -178,18 +160,12 @@ RSpec.shared_context "movie class" do
     class ActorResource < JSONAPI::Resource
       attributes :name, :email
       has_one :agency
-      has_many :awards
     end
 
     class AgencyResource < JSONAPI::Resource
       attributes :name
       has_one :state
       has_many :actors
-    end
-
-    class AwardResource < JSONAPI::Resource
-      attributes :title
-      has_one :actor
     end
 
     class StateResource < JSONAPI::Resource
@@ -242,7 +218,7 @@ RSpec.shared_context "movie class" do
       :advertising_campaign_id
     )
 
-    ActorStruct = Struct.new(:id, :name, :email, :agency_id, :award_ids)
+    ActorStruct = Struct.new(:id, :name, :email, :agency_id)
     MovieWithoutIdStruct = Struct.new(:name, :release_year)
     AgencyStruct = Struct.new(:id, :name, :actor_ids)
   end
