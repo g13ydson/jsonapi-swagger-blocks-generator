@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "movie class" do
-
-  # Movie, Actor Classes and serializers
+  # Movie, Actor Classes and resources
   before(:context) do
     # models
     class Movie
@@ -53,7 +52,7 @@ RSpec.shared_context "movie class" do
       end
 
       def cache_key
-        "#{id}"
+        id.to_s
       end
 
       def local_name(locale = :english)
@@ -123,7 +122,7 @@ RSpec.shared_context "movie class" do
       attr_accessor :id, :name, :movie_ids
 
       def movies
-        movie_ids.map.with_index do |id, i|
+        movie_ids.map.with_index do |_id, _i|
           m = Movie.new
           m.id = 232
           m.name = "test movie"
@@ -215,28 +214,7 @@ RSpec.shared_context "movie class" do
     class AccountResource < JSONAPI::Resource
       has_one :supplier
     end
-
-    class MovieOptionalRecordDataResource < JSONAPI::Resource
-      attributes :name
-      attribute :release_year, if: Proc.new { |record| record.release_year >= 2000 }
-    end
-
-    class MovieOptionalParamsDataResource < JSONAPI::Resource
-      attributes :name
-      attribute :director, if: Proc.new { |record, params| params && params[:admin] == true }
-    end
-
-    # class MovieOptionalRelationshipResource < JSONAPI::Resource
-    #   attributes :name
-    #   has_many :actors, if: Proc.new { |record| record.actors.any? }
-    # end
-
-    # class MovieOptionalRelationshipWithParamsResource < JSONAPI::Resource
-    #   attributes :name
-    #   has_one :owner, record_type: :user, if: Proc.new { |record, params| params && params[:admin] == true }
-    # end
   end
-
 
   # Namespaced MovieResource
   before(:context) do
@@ -295,7 +273,6 @@ RSpec.shared_context "movie class" do
   end
 
   let(:movie_struct) do
-
     agency = AgencyStruct
 
     actors = []
