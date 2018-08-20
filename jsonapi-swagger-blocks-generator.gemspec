@@ -11,9 +11,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Gleydson Tavares"]
   spec.email         = ["tavares.gleydson@gmail.com"]
 
-  spec.summary       = "creates swagger-blocks gem files using jsonapi specification"
+  spec.summary       = "creates swagger blocks files based on the JSONAPI::Resource"
   spec.description   = "The swagger-bloks files are created based on the JSONAPI::Resources files. To use this gem, you need to have jsonapi-resources gem installed."
-  spec.homepage      = "https://github.com/g13ydson/jsonapi-swagger-blocks"
+  spec.homepage      = "https://github.com/g13ydson/jsonapi-swagger-blocks-generator"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|

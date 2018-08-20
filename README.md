@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/2de3e3c4e8fb1543a687/maintainability)](https://codeclimate.com/github/g13ydson/jsonapi-swagger-blocks-generator/maintainability) <a href="https://codeclimate.com/github/g13ydson/jsonapi-swagger-blocks-generator/test_coverage"><img src="https://api.codeclimate.com/v1/badges/2de3e3c4e8fb1543a687/test_coverage" /></a> [![Build Status](https://travis-ci.org/g13ydson/jsonapi-swagger-blocks-generator.svg?branch=master)](https://travis-ci.org/g13ydson/jsonapi-swagger-blocks-generator)
 
-   creates the swagger blocks files documentation based on the JSONAPI::Resource file http://jsonapi-resources.com/ 
+   creates swagger blocks files based on the JSONAPI::Resource file http://jsonapi-resources.com/ 
 
 ## Installation
 
