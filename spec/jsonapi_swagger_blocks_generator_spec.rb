@@ -10,7 +10,9 @@ RSpec.describe Jsonapi::Swagger::Blocks::Generator do
 
   let(:generator) { Jsonapi::Generators::SwaggerBlocksGenerator }
   let(:app_root) { File.expand_path("../app", __dir__) }
+  let(:spec_root) { File.expand_path("../spec", __dir__) }
   let(:docs_dir) { File.join(app_root, "docs") }
+  let(:docs_test_dir) { File.join(spec_root, "docs") }
 
   before do
     generator.start(["Movie"])
@@ -29,10 +31,12 @@ RSpec.describe Jsonapi::Swagger::Blocks::Generator do
       expect("#{docs_dir}/movies_controller.rb").to be_an_existing_file
     end
 
-    it "return correct model test file" do
+    it "has correct model test file" do
+      expect(FileUtils.compare_file("#{docs_test_dir}/movie.rb", "#{docs_dir}/movie.rb")).to be_truthy
     end
 
-    it "return correct controller test file" do
+    it "has correct controller test file" do
+      expect(FileUtils.compare_file("#{docs_test_dir}/movies_controller.rb", "#{docs_dir}/movies_controller.rb")).to be_truthy
     end
   end
 end
