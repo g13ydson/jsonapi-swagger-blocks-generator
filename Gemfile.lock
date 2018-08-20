@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jsonapi-swagger-blocks-generator (0.1.0)
+    jsonapi-swagger-blocks-generator (0.1.1)
 
 GEM
   remote: https://rubygems.org/
