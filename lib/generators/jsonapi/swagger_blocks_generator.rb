@@ -14,7 +14,6 @@ module Jsonapi
         generate_controller_template
       rescue Exception => e
         p e.message
-        exit!
       end
 
       private

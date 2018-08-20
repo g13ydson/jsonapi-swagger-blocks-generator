@@ -39,4 +39,10 @@ RSpec.describe Jsonapi::Swagger::Blocks::Generator do
       expect(FileUtils.compare_file("#{docs_test_dir}/movies_controller.rb", "#{docs_dir}/movies_controller.rb")).to be_truthy
     end
   end
+
+  context "when testing uninitialized resource" do
+    it "uninitialized userResource.rb" do
+      expect(generator.start(["User"])).to eq(["uninitialized constant UserResource"])
+    end
+  end
 end
