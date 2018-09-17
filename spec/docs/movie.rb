@@ -12,16 +12,14 @@ class Movie
           key :type, :string
         end
         property :attributes do
-          items do
-            property :id do
-              key :type, :string
-            end
-            property :name do
-              key :type, :string
-            end
-            property :release_year do
-              key :type, :string
-            end
+          property :id do
+            key :type, :string
+          end
+          property :name do
+            key :type, :string
+          end
+          property :release_year do
+            key :type, :string
           end
         end
         property :relationships do
@@ -64,16 +62,14 @@ class Movie
         end
       end
       property :attributes do
-        items do
-          property :id do
-            key :type, :string
-          end
-          property :name do
-            key :type, :string
-          end
-          property :release_year do
-            key :type, :string
-          end
+        property :id do
+          key :type, :string
+        end
+        property :name do
+          key :type, :string
+        end
+        property :release_year do
+          key :type, :string
         end
       end
       property :relationships do
@@ -115,16 +111,14 @@ class Movie
         end
       end
       property :attributes do
-        items do
-          property :id do
-            key :type, :string
-          end
-          property :name do
-            key :type, :string
-          end
-          property :release_year do
-            key :type, :string
-          end
+        property :id do
+          key :type, :string
+        end
+        property :name do
+          key :type, :string
+        end
+        property :release_year do
+          key :type, :string
         end
       end
       property :relationships do
@@ -166,16 +160,14 @@ class Movie
         end
       end
       property :attributes do
-        items do
-          property :id do
-            key :type, :string
-          end
-          property :name do
-            key :type, :string
-          end
-          property :release_year do
-            key :type, :string
-          end
+        property :id do
+          key :type, :string
+        end
+        property :name do
+          key :type, :string
+        end
+        property :release_year do
+          key :type, :string
         end
       end
       property :relationships do
@@ -209,28 +201,24 @@ class Movie
         key :type, :string
       end
       property :attributes do
-        items do
-          property :id do
-            key :type, :string
-          end
-          property :name do
-            key :type, :string
-          end
-          property :release_year do
-            key :type, :string
-          end
+        property :id do
+          key :type, :string
+        end
+        property :name do
+          key :type, :string
+        end
+        property :release_year do
+          key :type, :string
         end
       end
       property :relationships do
         property :actors do
           property :data do
-            items do
-              property :type do
-                key :type, :string
-              end
-              property :id do
-                key :type, :string
-              end
+            property :type do
+              key :type, :string
+            end
+            property :id do
+              key :type, :string
             end
           end
         end
@@ -254,16 +242,14 @@ class Movie
         key :type, :string
       end
       property :attributes do
-        items do
-          property :id do
-            key :type, :string
-          end
-          property :name do
-            key :type, :string
-          end
-          property :release_year do
-            key :type, :string
-          end
+        property :id do
+          key :type, :string
+        end
+        property :name do
+          key :type, :string
+        end
+        property :release_year do
+          key :type, :string
         end
       end
     end
@@ -280,16 +266,14 @@ class Movie
           key :type, :string
         end
         property :attributes do
-          items do
-            property :id do
-              key :type, :string
-            end
-            property :name do
-              key :type, :string
-            end
-            property :email do
-              key :type, :string
-            end
+          property :id do
+            key :type, :string
+          end
+          property :name do
+            key :type, :string
+          end
+          property :email do
+            key :type, :string
           end
         end
         property :relationships do
@@ -373,13 +357,11 @@ class Movie
           key :type, :string
         end
         property :attributes do
-          items do
-            property :id do
-              key :type, :string
-            end
-            property :name do
-              key :type, :string
-            end
+          property :id do
+            key :type, :string
+          end
+          property :name do
+            key :type, :string
           end
         end
         property :relationships do

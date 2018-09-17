@@ -16,13 +16,11 @@ class <%= model.camelcase %>
         end
       <%- if attributes -%>
         property :attributes do
-          items do
-          <%- attributes.keys.each do |attribute| -%>
-            property :<%= attribute %> do
-              key :type, :string
-            end
-          <%- end -%>
+        <%- attributes.keys.each do |attribute| -%>
+          property :<%= attribute %> do
+            key :type, :string
           end
+        <%- end -%>
         end
       <%- end -%>
       <%- if relationships -%>
@@ -60,13 +58,11 @@ class <%= model.camelcase %>
       end
     <%- if attributes -%>
       property :attributes do
-        items do
-        <%- attributes.keys.each do |attribute| -%>
-          property :<%= attribute %> do
-            key :type, :string
-          end
-        <%- end -%>
+      <%- attributes.keys.each do |attribute| -%>
+        property :<%= attribute %> do
+          key :type, :string
         end
+      <%- end -%>
       end
     <%- end -%>
     <%- if relationships -%>
@@ -103,13 +99,11 @@ class <%= model.camelcase %>
       end
     <%- if attributes -%>
       property :attributes do
-        items do
-        <%- attributes.keys.each do |attribute| -%>
-          property :<%= attribute %> do
-            key :type, :string
-          end
-        <%- end -%>
+      <%- attributes.keys.each do |attribute| -%>
+        property :<%= attribute %> do
+          key :type, :string
         end
+      <%- end -%>
       end
     <%- end -%>
     <%- if relationships -%>
@@ -146,13 +140,11 @@ class <%= model.camelcase %>
       end
     <%- if attributes -%>
       property :attributes do
-        items do
-        <%- attributes.keys.each do |attribute| -%>
-          property :<%= attribute %> do
-            key :type, :string
-          end
-        <%- end -%>
+      <%- attributes.keys.each do |attribute| -%>
+        property :<%= attribute %> do
+          key :type, :string
         end
+      <%- end -%>
       end
     <%- end -%>
     <%- if relationships -%>
@@ -181,13 +173,11 @@ class <%= model.camelcase %>
       end
     <%- if attributes -%>
       property :attributes do
-        items do
-        <%- attributes.keys.each do |attribute| -%>
-          property :<%= attribute %> do
-            key :type, :string
-          end
-        <%- end -%>
+      <%- attributes.keys.each do |attribute| -%>
+        property :<%= attribute %> do
+          key :type, :string
         end
+      <%- end -%>
       end
     <%- end -%>
     <%- if relationships -%>
@@ -203,13 +193,11 @@ class <%= model.camelcase %>
               key :type, :string
             end
           <%- elsif relationship[1].class.to_s == "JSONAPI::Relationship::ToMany" -%>
-            items do
-              property :type do
-                key :type, :string
-              end
-              property :id do
-                key :type, :string
-              end
+            property :type do
+              key :type, :string
+            end
+            property :id do
+              key :type, :string
             end
           <%- end -%>
           end
@@ -227,13 +215,11 @@ class <%= model.camelcase %>
       end
     <%- if attributes -%>
       property :attributes do
-        items do
-        <%- attributes.keys.each do |attribute| -%>
-          property :<%= attribute %> do
-            key :type, :string
-          end
-        <%- end -%>
+      <%- attributes.keys.each do |attribute| -%>
+        property :<%= attribute %> do
+          key :type, :string
         end
+      <%- end -%>
       end
     <%- end -%>
     end
@@ -255,13 +241,11 @@ class <%= model.camelcase %>
         end
       <%- if relation_attributes -%>
         property :attributes do
-          items do
-          <%- relation_attributes.keys.each do |attribute| -%>
-            property :<%= attribute %> do
-              key :type, :string
-            end
-          <%- end -%>
+        <%- relation_attributes.keys.each do |attribute| -%>
+          property :<%= attribute %> do
+            key :type, :string
           end
+        <%- end -%>
         end
       <%- end -%>
       <%- if relation_relationships -%>
