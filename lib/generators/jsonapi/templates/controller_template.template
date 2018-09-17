@@ -6,7 +6,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :get do
       key :summary, "Index <%= model_name.pluralize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -46,7 +46,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :get do
       key :summary, "Show <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -93,7 +93,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :post do
       key :summary, "Create <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -154,7 +154,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :put do
       key :summary, "Update <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -221,7 +221,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :patch do
       key :summary, "Update <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -288,7 +288,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :delete do
       key :summary, "Delete <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -337,15 +337,22 @@ class <%= model.pluralize.camelcase %>Controller
 <%- if relationships -%>
 <%- relationships.keys.each do |relationship| -%>
 
-  swagger_path "/<%= model_name.pluralize.underscore %>/{<%= model_name.singularize.underscore %>_id}/<%= relationship %>" do
+  swagger_path "/<%= model_name.pluralize.underscore %>/{id}/<%= relationship %>" do
     operation :get do
       key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
       ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of <%= model_name.singularize.underscore %>"
+        key :required, true
+        key :type, :integer
+      end
       response 200 do
         key :description, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
         schema do
@@ -397,7 +404,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :get do
       key :summary, "Show <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -470,7 +477,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :put do
       key :summary, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -536,7 +543,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :post do
       key :summary, "Update <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"
@@ -602,7 +609,7 @@ class <%= model.pluralize.camelcase %>Controller
     operation :delete do
       key :summary, "Delete <%= relationship %> from <%= model_name.singularize.underscore %>"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "<%= model_name.singularize.underscore %>"

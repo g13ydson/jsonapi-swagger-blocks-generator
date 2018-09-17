@@ -5,7 +5,7 @@ class MoviesController
     operation :get do
       key :summary, "Index movies"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -45,7 +45,7 @@ class MoviesController
     operation :get do
       key :summary, "Show movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -92,7 +92,7 @@ class MoviesController
     operation :post do
       key :summary, "Create movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -153,7 +153,7 @@ class MoviesController
     operation :put do
       key :summary, "Update movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -220,7 +220,7 @@ class MoviesController
     operation :patch do
       key :summary, "Update movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -287,7 +287,7 @@ class MoviesController
     operation :delete do
       key :summary, "Delete movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -333,15 +333,22 @@ class MoviesController
     end
   end
 
-  swagger_path "/movies/{movie_id}/actors" do
+  swagger_path "/movies/{id}/actors" do
     operation :get do
       key :summary, "Show actors from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
       ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of movie"
+        key :required, true
+        key :type, :integer
+      end
       response 200 do
         key :description, "Show actors from movie"
         schema do
@@ -393,7 +400,7 @@ class MoviesController
     operation :get do
       key :summary, "Show actors from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -466,7 +473,7 @@ class MoviesController
     operation :put do
       key :summary, "Update actors from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -532,7 +539,7 @@ class MoviesController
     operation :post do
       key :summary, "Update actors from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -598,7 +605,7 @@ class MoviesController
     operation :delete do
       key :summary, "Delete actors from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -663,15 +670,22 @@ class MoviesController
     end
   end
 
-  swagger_path "/movies/{movie_id}/movie_type" do
+  swagger_path "/movies/{id}/movie_type" do
     operation :get do
       key :summary, "Show movie_type from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
       ]
+      parameter do
+        key :name, :id
+        key :in, :path
+        key :description, "id of movie"
+        key :required, true
+        key :type, :integer
+      end
       response 200 do
         key :description, "Show movie_type from movie"
         schema do
@@ -723,7 +737,7 @@ class MoviesController
     operation :get do
       key :summary, "Show movie_type from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -796,7 +810,7 @@ class MoviesController
     operation :put do
       key :summary, "Update movie_type from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -862,7 +876,7 @@ class MoviesController
     operation :post do
       key :summary, "Update movie_type from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
@@ -928,7 +942,7 @@ class MoviesController
     operation :delete do
       key :summary, "Delete movie_type from movie"
       key :produces, [
-        "application/json"
+        "application/vnd.api+json"
       ]
       key :tags, [
         "movie"
