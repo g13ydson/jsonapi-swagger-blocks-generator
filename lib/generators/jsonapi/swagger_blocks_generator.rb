@@ -10,6 +10,7 @@ module Jsonapi
       def generate_documentation
         model_name = model.to_s.split("::").last || model
         Object.const_get("#{namespace}::#{model_name.camelcase}Resource").is_a?(Class)
+        generate_error_template
         generate_model_template
         generate_controller_template
       rescue Exception => e
@@ -17,6 +18,10 @@ module Jsonapi
       end
 
       private
+
+        def generate_error_template
+          template "error_template.template", "app/docs/error.rb"
+        end
 
         def generate_model_template
           template "model_template.template", "app/docs/#{model.underscore}.rb"

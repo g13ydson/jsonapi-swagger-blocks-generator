@@ -6,7 +6,6 @@ class <%= model.camelcase %>
 
   swagger_schema :<%= model_name.singularize.underscore %>_index_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -231,7 +230,6 @@ class <%= model.camelcase %>
   <%- relation_relationships = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._relationships -%>
   <%- relation_attributes = "#{namespace}::#{relationship.to_s.camelcase.singularize}Resource".constantize._attributes -%>
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -278,7 +276,6 @@ class <%= model.camelcase %>
       end
     end
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -292,7 +289,6 @@ class <%= model.camelcase %>
 
   swagger_schema :put_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -306,7 +302,6 @@ class <%= model.camelcase %>
 
   swagger_schema :update_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -320,7 +315,6 @@ class <%= model.camelcase %>
 
   swagger_schema :delete_<%= relationship %>_from_<%= model_name.singularize.underscore %>_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer

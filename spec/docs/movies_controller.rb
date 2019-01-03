@@ -17,25 +17,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -64,25 +60,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -111,39 +103,22 @@ class MoviesController
           key :"$ref", :movie_create_response
         end
       end
-      response 401 do
-        key :description, "Unauthorized"
+      rresponse 401 do
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -180,37 +155,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
-      end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
-      response 403 do
-        key :description, "Forbidden"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
-      end
-      response 409 do
-        key :description, "Conflict"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -247,37 +206,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
-      end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
-      response 403 do
-        key :description, "Forbidden"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
-      end
-      response 409 do
-        key :description, "Conflict"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -302,32 +245,22 @@ class MoviesController
       response 200 do
         key :description, "Ok"
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
+      response 401 do
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
-      end
-      response 401 do
-        key :description, "Unauthorized"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -356,41 +289,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
-      end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
         end
       end
       response 404 do
-        key :description, "Not Found"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -419,51 +332,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
         end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -491,45 +374,22 @@ class MoviesController
           key :"$ref", :update_actors_from_movie_relation_response
         end
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -557,45 +417,22 @@ class MoviesController
           key :"$ref", :update_actors_from_movie_relation_response
         end
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -623,48 +460,22 @@ class MoviesController
           key :"$ref", :delete_actors_from_movie_relation_response
         end
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
-      end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -693,41 +504,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
-      end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
         end
       end
       response 404 do
-        key :description, "Not Found"
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -756,51 +547,21 @@ class MoviesController
         end
       end
       response 401 do
-        key :description, "Unauthorized"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
         end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -828,45 +589,22 @@ class MoviesController
           key :"$ref", :update_movie_type_from_movie_relation_response
         end
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -894,45 +632,22 @@ class MoviesController
           key :"$ref", :update_movie_type_from_movie_relation_response
         end
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+      response 404 do
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end
@@ -960,48 +675,22 @@ class MoviesController
           key :"$ref", :delete_movie_type_from_movie_relation_response
         end
       end
-      response 202 do
-        key :description, "Accepted"
-      end
-      response 204 do
-        key :description, "No Content"
-      end
       response 401 do
-        key :description, "Unauthorized"
+        key :description, "Unauthorized error"
+        schema do
+          key :"$ref", :error
+        end
       end
       response 404 do
-        key :description, "Not Found"
-      end
-      response 403 do
-        key :description, "Forbidden"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        key :description, "Not found error"
+        schema do
+          key :"$ref", :error
         end
       end
       response :default do
         key :description, "Unexpected error"
-        schema do 
-          property :errors do
-            property :status do
-              key :type, :integer
-            end
-            property :source do
-              key :type, :string
-            end
-            property :detail do
-              key :type, :string
-            end
-          end
+        schema do
+          key :"$ref", :error
         end
       end
     end

@@ -3,7 +3,6 @@ class Movie
 
   swagger_schema :movie_index_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -257,7 +256,6 @@ class Movie
 
   swagger_schema :show_actors_from_movie_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -292,7 +290,6 @@ class Movie
       end
     end
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -306,7 +303,6 @@ class Movie
 
   swagger_schema :put_actors_from_movie_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -320,7 +316,6 @@ class Movie
 
   swagger_schema :update_actors_from_movie_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -334,7 +329,6 @@ class Movie
 
   swagger_schema :delete_actors_from_movie_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -348,7 +342,6 @@ class Movie
 
   swagger_schema :show_movie_type_from_movie_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -390,7 +383,6 @@ class Movie
       end
     end
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -404,7 +396,6 @@ class Movie
 
   swagger_schema :put_movie_type_from_movie_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -418,7 +409,6 @@ class Movie
 
   swagger_schema :update_movie_type_from_movie_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer
@@ -432,7 +422,6 @@ class Movie
 
   swagger_schema :delete_movie_type_from_movie_relation_response do
     property :data do
-      key :type, :array
       items do
         property :id do
           key :type, :integer

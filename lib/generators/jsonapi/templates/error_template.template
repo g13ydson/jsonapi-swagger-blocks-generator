@@ -1,0 +1,17 @@
+class Error
+  include Swagger::Blocks
+
+  swagger_schema :error do
+    property :errors, type: :array do
+      items do
+        property :title, type: :string
+        property :detail, type: :string
+        property :code, type: :string
+        property :status, type: :string
+        property :source do
+          property :pointer, type: :string
+        end
+      end
+    end
+  end
+end
